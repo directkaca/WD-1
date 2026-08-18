@@ -18,7 +18,20 @@ footer {
 .navigation {
     background-color: #232;
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 50px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.navigation a:hover {
+    color: blue;
+    background-color: #444;
 }
