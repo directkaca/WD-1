@@ -35,3 +35,74 @@ footer {
     color: blue;
     background-color: #444;
 }
+
+.main-content {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.game-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 250px;
+}
+
+.progress-bar {
+    background-color: #555;
+    border-radius: 5px;
+    height: 10px;
+}
+
+.progress {
+    background-color: #0f0;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.progress-text {
+    font-size: 14px;
+    text-align: right;
+    margin-top: 5px;
+}
+
+.hollow-knight {
+    width: 71.43%;
+}
+
+.minecraft {
+    width: 59.02%;
+}
+
+.celeste {
+    width: 83.33%;
+}
+
+.game-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.game-card p {
+    margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+    .navigation {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .game-card {
+        flex: 1 1 100%;
+    }
+}

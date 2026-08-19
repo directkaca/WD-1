@@ -1,27 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>WD-1 - Game Achievement Tracker</title>
 </head>
+
 <body>
+
     <header>
         <h1>WD-1</h1>
         <p>Game Achievement Tracker</p>
     </header>
+
     <nav class="navigation">
         <a href="#">Home</a>
         <a href="#">Games</a>
         <a href="#">Achievements</a>
         <a href="#">Profile</a>
     </nav>
-    <main>
-        <p>Game Achievement Tracker</p>
+
+    <main class="main-content">
+        <h2>Welcome to WD-1</h2>
+        <p>Track your gaming achievements across all your favorite games!</p>
+
+        <div class="game-list">
+
+            <div class="game-card">
+                <h3>Hollow Knight</h3>
+                <p>Achievements: 45 / 63</p>
+
+                    <div class="progress-bar">
+                        <div class="progress hollow-knight"></div>
+                    </div>
+
+                    <p class="progress-text">Completion: 71.43%</p>
+            </div>
+
+            <div class="game-card">
+                <h3>Minecraft</h3>
+                <p>Achievements: 72 / 122</p>
+
+                    <div class="progress-bar">
+                        <div class="progress minecraft"></div>
+                    </div>
+
+                    <p class="progress-text">Completion: 59.02%</p>
+            </div>
+
+            <div class="game-card">
+                <h3>Celeste</h3>
+                <p>Achievements: 25 / 30</p>
+
+                    <div class="progress-bar">
+                        <div class="progress celeste"></div>
+                    </div>
+
+                    <p class="progress-text">Completion: 83.33%</p>
+            </div>
+
+        </div>
     </main>
+
     <footer>
         Copyright &copy; 2026 Game Achievement Tracker. All rights reserved.
     </footer>
+    
 </body>
 </html>
