@@ -1,84 +1,111 @@
 const games = [
     {
+        id: 1,
         name: "Hollow Knight",
         achievements: 45,
         totalAchievements: 63,
     },
     {
+        id: 2,
         name: "Minecraft",
         achievements: 72,
         totalAchievements: 122,
     },
     {
+        id: 3,
         name: "Celeste",
         achievements: 25,
         totalAchievements: 30,
     }
 ];
 
-for (const game of games) {
-    const completion = game.achievements / game.totalAchievements * 100;
-    
-    console.log(game.name);
-    console.log(completion.toFixed(2));
-}
-
 const gameList = document.querySelector(".game-list");
 
-for (const game of games) {
-
+function createGameCard(game) {
     const completion = game.achievements / game.totalAchievements * 100;
 
-    // Game Card
     const gameCard = document.createElement("div");
     gameCard.classList.add("game-card");
+    gameCard.dataset.gameId = game.id;
 
-    // Game Title
     const gameTitle = document.createElement("h3");
     gameTitle.textContent = game.name;
 
-    // Achievement Text
     const achievementText = document.createElement("p");
-    achievementText.textContent = `Achievements: ${game.achievements} / ${game.totalAchievements}`;
-
-    // Progress Bar Container
+    achievementText.textContent = 
+    `Achievements: ${game.achievements} / ${game.totalAchievements}`;
+    
     const progressBar = document.createElement("div");
     progressBar.classList.add("progress-bar");
 
-    // Progress
     const progress = document.createElement("div");
     progress.classList.add("progress");
 
     progress.style.width = completion + "%";
 
-    // Completion Text
     const completionText = document.createElement("p");
     completionText.classList.add("progress-text");
     completionText.textContent = `Completion: ${completion.toFixed(2)}%`;
 
-    // Progress to progress bar
     progressBar.appendChild(progress);
 
-    // All game card
     gameCard.appendChild(gameTitle);
     gameCard.appendChild(achievementText);
     gameCard.appendChild(progressBar);
     gameCard.appendChild(completionText);
 
-    // Game card to game list
+    return gameCard;
+};
+
+const gameModal =  document.querySelector(".game-modal");
+const modalContent = document.querySelector(".modal-content");
+const gameModalDetail = document.querySelector(".game-modal-detail");
+const closeButton = document.querySelector(".close-button");
+
+for (const game of games) {
+    const gameCard = createGameCard(game);
     gameList.appendChild(gameCard);
-}
 
-function showGame(game) {
-    console.log(game.name);
-    console.log(game.achievements);
-    console.log(game.totalAchievements);
-}
+    gameCard.addEventListener("click", function() {
+        const gameId = this.dataset.gameId;
 
-showGame(games[0]);
-showGame(games[1]);
-showGame(games[2]);
+        const game = games.find(function (game) {
+            return game.id == gameId;
+        });
 
-function createGameCard(game) {
-    
-}
+        gameModal.style.display = "flex";
+
+        gameModalDetail.innerHTML = "";
+
+        const title = document.createElement("h3");
+        title.textContent = game.name;
+        gameModalDetail.appendChild(title);
+
+        const achievementText = document.createElement("p");
+        achievementText.textContent = 
+        `Achievements: ${game.achievements} / ${game.totalAchievements}`;
+        gameModalDetail.appendChild(achievementText);
+
+        const progressBar = document.createElement("div");
+        progressBar.classList.add("progress-bar");
+
+        const progress = document.createElement("div");
+        progress.classList.add("progress");
+
+        progress.style.width =
+        (game.achievements / game.totalAchievements * 100) + "%";
+
+        progressBar.appendChild(progress);
+
+        gameModalDetail.appendChild(progressBar);
+
+        const completionText = document.createElement("p");
+        completionText.textContent = 
+        `Completion: ${(game.achievements / game.totalAchievements * 100).toFixed(2)}%`;
+        gameModalDetail.appendChild(completionText);
+    });
+
+    closeButton.addEventListener("click", function() {
+    gameModal.style.display = "none";
+    });
+};
