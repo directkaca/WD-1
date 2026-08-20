@@ -95,6 +95,7 @@ footer {
 }
 
 @media (max-width: 600px) {
+    /* navigation */
     .navigation {
         flex-direction: column;
         justify-content: center;
@@ -102,6 +103,7 @@ footer {
         align-items: center;
     }
 
+    /* game cards */
     .game-card {
         flex: 1 1 100%;
     }
