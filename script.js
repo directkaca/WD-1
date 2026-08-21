@@ -61,6 +61,17 @@ const gameModal =  document.querySelector(".game-modal");
 const modalContent = document.querySelector(".modal-content");
 const gameModalDetail = document.querySelector(".game-modal-detail");
 const closeButton = document.querySelector(".close-button");
+const themeButton = document.querySelector(".theme-button");
+
+themeButton.addEventListener("click", function() {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        themeButton.textContent = "☀️";
+    } else {
+        themeButton.textContent = "🌙";
+    }
+});
 
 for (const game of games) {
     const gameCard = createGameCard(game);
